@@ -32,6 +32,23 @@ def generate_random_sorted_list(n:int=20, min_value:int=0, max_value:int=1000)->
     
     return new_list
     
-        
+def search_linear(source_list:list, target:int)->tuple:
+    # index = 0
+    # for i in source_list:
+    #     if i==target:
+    #         return True, index
+    #     index += 1
+    
+    for index in range(len(source_list)):
+        if source_list[index]==target:
+            return True, index
+    
+    return False, -1
    
-print(generate_random_sorted_list())
+my_list = generate_random_unsorted_list()
+print("List : ", my_list)
+
+target = 100 #my_list[3]
+print("Target : ", target)
+search_result, index = search_linear(my_list, target)
+print(f"Target ({target}) has been found at index {index}" if search_result else f"Target ({target}) has not been found")
